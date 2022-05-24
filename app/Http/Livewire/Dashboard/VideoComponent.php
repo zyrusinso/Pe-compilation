@@ -126,7 +126,7 @@ class VideoComponent extends Component
 
     public function render()
     {
-        return view('livewire.dashboard.video-component', [
+        return view('livewire.Dashboard.video-component', [
             'data'=> $this->read()
         ])->layout('layouts.base');
     }
