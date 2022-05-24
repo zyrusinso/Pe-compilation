@@ -17,25 +17,31 @@
                     </div>
                     <div class="last_episodes loaddub">
                         <ul class="items">
-                            @foreach($this->allVideos() as $item)
-                                <li>
-                                    <div class="img">
-                                        <a href="{{ route('video', $item->id) }}"
-                                            title="{{ $item->title }}">
-                                            <img src="{{ asset('storage').'/'.$item->screenshot }}"
-                                                alt="{{ $item->title }}" />
-                                            <div class="type ic-SUB"></div>
-                                        </a>
-                                    </div>
-                                    <p class="name">
-                                        <a href="{{ route('video', $item->id) }}"
-                                            title="{{ $item->title }}">{{ $item->title }}</a>
-                                    </p>
-                                    <p class="episode">
-                                        {{ $this->user($item->user_id)->fname.' '.$this->user($item->user_id)->lname }}
-                                    </p>
-                                </li>
-                            @endforeach
+                            @if(count($this->allVideos()) > 0)
+                                @foreach($this->allVideos() as $item)
+                                    <li>
+                                        <div class="img">
+                                            <a href="{{ route('video', $item->id) }}"
+                                                title="{{ $item->title }}">
+                                                <img src="{{ asset('storage').'/'.$item->screenshot }}"
+                                                    alt="{{ $item->title }}" />
+                                                <div class="type ic-SUB"></div>
+                                            </a>
+                                        </div>
+                                        <p class="name">
+                                            <a href="{{ route('video', $item->id) }}"
+                                                title="{{ $item->title }}">{{ $item->title }}</a>
+                                        </p>
+                                        <p class="episode">
+                                            {{ $this->user($item->user_id)->fname.' '.$this->user($item->user_id)->lname }}
+                                        </p>
+                                    </li>
+                                @endforeach
+                            @else
+                                <h2 style="justify-content: center; text-align: center; margin-bottom: 20px; self-align: center">
+                                    NO Data Found
+                                </h2>
+                            @endif
                         </ul>
                     </div>
                 </div>
@@ -81,6 +87,7 @@
                             </div>
                             <div id="load_topivews" class="views1" style="display: block;">
                                 <ul>
+                                @if(count($categories) > 0)
                                     @foreach($categories as $item)
                                         <li>
                                             <a href="{{ route('video', $item->id) }}" title="{{ $item->title }}">
@@ -89,6 +96,11 @@
                                             </a>
                                         </li>
                                     @endforeach
+                                @else
+                                    <h4>
+                                        NO Data Found
+                                    </h4>
+                                @endif
                                 </ul>
                             </div>
                         </div>
