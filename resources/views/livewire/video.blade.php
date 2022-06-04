@@ -66,7 +66,7 @@
                                                         <a href="{{ route('video', $item->id) }}"
                                                             title="{{ $item->title }}">
                                                             <div class="thumbnail-recent"
-                                                                style="background: url({{ asset('storage').'/'.$item->screenshot }});">
+                                                                style="background: url('{{ asset('storage').'/'.$item->screenshot }}');">
                                                             </div>
                                                             VIDEO TITLE
                                                         </a>
