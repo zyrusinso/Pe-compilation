@@ -92,7 +92,7 @@
                 </div>
                 <div class="mb-3">
                     <div class="form-group">
-                        <label for="screeshot">Screenshot</label><br>
+                        <label for="screeshot">Screenshot <span style="font-size: 10px">(Wait for image to popup before you submit)</span></label><br>
                         @if ($screenshot)
                             <img src="{{ $screenshot}}" width="200">
                         @endif
